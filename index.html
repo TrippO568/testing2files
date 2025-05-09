@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animagnet - Welcome to the Web!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000000;
+            color: #00ff00;
+            font-family: "Comic Sans MS", cursive;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: #000033;
+            border: 3px solid #00ff00;
+            box-shadow: 0 0 20px #00ff00;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+        }
+        h1 {
+            font-size: 48px;
+            text-shadow: 2px 2px #ff00ff;
+            animation: rainbow 3s infinite;
+        }
+        .construction {
+            margin: 20px 0;
+        }
+        .menu {
+            margin: 20px 0;
+        }
+        .menu a {
+            color: #00ff00;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .menu a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+        marquee {
+            background: #000066;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        .badge {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #000066;
+            border: 3px solid #ff00ff;
+            padding: 20px;
+            z-index: 1000;
+            max-width: 80%;
+            animation: popupAnimation 0.5s;
+        }
+        .popup-content {
+            color: #00ff00;
+            text-align: center;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #ff00ff;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+        @keyframes rainbow {
+            0% { color: #ff0000; }
+            20% { color: #ffff00; }
+            40% { color: #00ff00; }
+            60% { color: #00ffff; }
+            80% { color: #ff00ff; }
+            100% { color: #ff0000; }
+        }
+        .blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        @keyframes popupAnimation {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+        .about-content {
+            animation: spin 2s infinite linear;
+        }
+        .gallery-content {
+            animation: bounce 1s infinite;
+        }
+        .contact-content {
+            animation: shake 0.5s infinite;
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Animagnet!</h1>
+        <div class="construction">
+            <img src="https://web.archive.org/web/20090830073027/http://geocities.com/Area51/Corridor/5177/construction.gif" alt="Under Construction">
+        </div>
+        <marquee scrollamount="5" behavior="alternate">
+            🚀 Welcome to the future of the web! 🚀 This site is best viewed at 800x600 resolution! 🚀
+        </marquee>
+        <div class="menu">
+            <a href="#" class="blink" onclick="showPopup('about')">About</a>
+            <a href="#" onclick="showPopup('gallery')">Gallery</a>
+            <a href="#" onclick="showPopup('contact')">Contact</a>
+        </div>
+        <p>🚧 This website is under construction! 🚧</p>
+        <p>Last updated: <span id="date"></span></p>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="popup" id="about-popup">
+        <span class="close-btn" onclick="closePopup('about')">×</span>
+        <div class="popup-content about-content">
+            <h2>About Animagnet</h2>
+            <p>🌟 Welcome to the coolest website of 2000! 🌟</p>
+            <p>We're a group of web pioneers exploring the digital frontier!</p>
+            <img src="https://web.archive.org/web/20090830073027/http://geocities.com/Area51/Corridor/5177/star.gif" alt="Star">
+        </div>
+    </div>
+
+    <div class="popup" id="gallery-popup">
+        <span class="close-btn" onclick="closePopup('gallery')">×</span>
+        <div class="popup-content gallery-content">
+            <h2>Our Gallery</h2>
+            <p>🎨 Check out our amazing collection! 🎨</p>
+            <div style="display: flex; justify-content: center; gap: 10px;">
+                <img src="https://web.archive.org/web/20090830073027/http://geocities.com/Area51/Corridor/5177/alien.gif" alt="Alien" style="width: 100px;">
+                <img src="https://web.archive.org/web/20090830073027/http://geocities.com/Area51/Corridor/5177/ufo.gif" alt="UFO" style="width: 100px;">
+                <img src="https://web.archive.org/web/20090830073027/http://geocities.com/Area51/Corridor/5177/rocket.gif" alt="Rocket" style="width: 100px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="contact-popup">
+        <span class="close-btn" onclick="closePopup('contact')">×</span>
+        <div class="popup-content contact-content">
+            <h2>Contact Us</h2>
+            <p>📧 Email: webmaster@animagnet.com</p>
+            <p>📱 ICQ: 123456789</p>
+            <p>💬 AIM: AnimagnetWeb</p>
+            <img src="https://web.archive.org/web/20090830073027/http://geocities.com/Area51/Corridor/5177/email.gif" alt="Email">
+        </div>
+    </div>
+
+    <div class="badge">
+        <img src="https://web.archive.org/web/20090830073027/http://geocities.com/Area51/Corridor/5177/netscape.gif" alt="Best viewed in Netscape Navigator">
+    </div>
+
+    <script>
+        document.getElementById('date').textContent = new Date().toLocaleDateString();
+
+        function showPopup(type) {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById(type + '-popup').style.display = 'block';
+        }
+
+        function closePopup(type) {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById(type + '-popup').style.display = 'none';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('overlay').addEventListener('click', function() {
+            document.querySelectorAll('.popup').forEach(popup => {
+                popup.style.display = 'none';
+            });
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html> 
